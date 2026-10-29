@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Birding Tours | Wild & Still</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=Playfair+Display&display=swap');
+*{box-sizing:border-box}
+body{margin:0;background:#f2ede2;color:#243d32;font-family:'DM Sans',sans-serif}
+header{display:flex;justify-content:space-between;align-items:center;padding:24px 5%}
+.logo{font:28px 'Playfair Display',serif}
+nav{display:flex;gap:24px;flex-wrap:wrap}
+nav a{text-decoration:none;color:#243d32;font-size:14px}
+main{max-width:1250px;margin:auto;padding:60px 5%}
+h1{font:clamp(48px,6vw,80px) 'Playfair Display',serif;margin:15px 0}
+.intro{max-width:720px;margin-bottom:50px}
+.eyebrow{color:#8b6e52;letter-spacing:3px;text-transform:uppercase;font-size:12px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.card{background:#fffaf1;display:flex;flex-direction:column}
+.card img{width:100%;height:220px;object-fit:cover}
+.card-content{padding:24px;display:flex;flex-direction:column;flex:1}
+.card h2{font:29px 'Playfair Display',serif;margin:0 0 12px}
+.card p{line-height:1.7;font-size:14px}
+.details{color:#526c50;font-size:13px;margin:12px 0}
+.button{display:inline-block;border:1px solid #526c50;color:#243d32;padding:13px 18px;text-decoration:none;font-size:13px;margin-top:auto;text-align:center}
+.button:hover{background:#526c50;color:white}
+footer{background:#243d32;color:#f2ede2;padding:30px 5%;margin-top:70px}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){header{display:block}nav{margin-top:20px;gap:12px}.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+<a class="logo" href="index.html">Wild & Still</a>
+<nav>
+<a href="index.html">Home</a>
+<a href="photography.html">Photography</a>
+<a href="tours.html">Birding Tours</a>
+<a href="about.html">About</a>
+<a href="contact.html">Get in touch</a>
+</nav>
+</header>
+
+<main>
+<div class="intro">
+<p class="eyebrow">Discover the wild together</p>
+<h1>Birding Tours</h1>
+<p>Discover the extraordinary wildlife hiding in the Dutch countryside. From peaceful wetlands to birdsong-filled mornings, explore nature at your own pace.</p>
+</div>
+
+<div class="grid" id="tourGrid"></div>
+</main>
+
+<footer>Wild & Still · Nature Photography & Birding</footer>
+
+<script>
+// Example tours only. Locations, descriptions and prices can be changed later.
+const tours=[
+{
+name:"Wetland Discovery",
+location:"Vinkeveense Plassen",
+duration:"2 hours",
+price:"Price coming soon",
+description:"Explore peaceful wetlands and discover the remarkable birds that call these waters home.",
+image:"https://images.unsplash.com/photo-1472396961693-142e6e269027?w=900"
+},
+{
+name:"Birds of the Polder",
+location:"Abcoude",
+duration:"3 hours",
+price:"Price coming soon",
+description:"Wander through the Dutch countryside and learn to recognize its familiar and surprising birdlife.",
+image:"https://images.unsplash.com/photo-1444464666168-49d633b86797?w=900"
+},
+{
+name:"Morning Birdsong",
+location:"Mijdrecht",
+duration:"2 hours",
+price:"Price coming soon",
+description:"Start the day surrounded by birdsong and discover the voices of local songbirds.",
+image:"https://images.unsplash.com/photo-1452570053594-1b985d6ea890?w=900"
+},
+{
+name:"Birds of Prey",
+location:"To be arranged",
+duration:"3 hours",
+price:"Price coming soon",
+description:"Look to the skies and learn how to spot and identify birds of prey in their natural habitat.",
+image:"https://images.unsplash.com/photo-1474511320723-9a56873867b5?w=900"
+},
+{
+name:"Golden Hour Birding",
+location:"To be arranged",
+duration:"2 hours",
+price:"Price coming soon",
+description:"Experience the Dutch landscape in the beautiful evening light, when nature takes on a different rhythm.",
+image:"https://images.unsplash.com/photo-1448375240586-882707db888b?w=900"
+},
+{
+name:"Your Own Adventure",
+location:"Your choice",
+duration:"Flexible",
+price:"On request",
+description:"Have a particular bird, destination or experience in mind? Let's create a personalized birdwatching tour together.",
+image:"https://images.unsplash.com/photo-1472396961693-142e6e269027?w=900"
+}
+];
+
+document.getElementById("tourGrid").innerHTML=tours.map(t=>`
+<article class="card">
+<img src="${t.image}" alt="${t.name}">
+<div class="card-content">
+<h2>${t.name}</h2>
+<div class="details">${t.location} · ${t.duration}</div>
+<p>${t.description}</p>
+<p><strong>${t.price}</strong></p>
+<a class="button" href="contact.html?tour=${encodeURIComponent(t.name)}">Enquire about this tour</a>
+</div>
+</article>
+`).join("");
+</script>
+</body>
+</html>
